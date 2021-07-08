@@ -9,9 +9,11 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             int position = 0;
-            int winningPosition = 10;
+            int winningPosition = 100;
             int dieRoll;
             int option;
+            int rollcount = 0;
+
             Console.WriteLine("Welcome to Snake & Ladder");
 
             Console.WriteLine("Player is at Position:" + position);
@@ -20,6 +22,7 @@ namespace SnakeAndLadder
             while (position < winningPosition)
             {
                 dieRoll = random.Next(6) + 1;
+                rollcount++;
                 Console.WriteLine("DieValue " + dieRoll);
                 //User Options 0-Noplay 2-ladder 3-Snake
                 //while Winning position is reached
@@ -47,12 +50,14 @@ namespace SnakeAndLadder
                         else if (position == winningPosition)
                         {
                             Console.WriteLine("User Has Won " + position);
+                            Console.WriteLine("The Number of Dice played to win: " + rollcount);
                             break;
 
                         }
                         break;
 
                     case 2:
+
                         position -= dieRoll;
                         if (position < 0)
                         {
