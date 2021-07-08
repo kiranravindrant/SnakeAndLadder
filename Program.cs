@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +9,7 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             int position = 0;
-            int winningPosition = 100;
+            int winningPosition = 10;
             int dieRoll;
             int option;
             Console.WriteLine("Welcome to Snake & Ladder");
@@ -36,14 +35,20 @@ namespace SnakeAndLadder
                         break;
 
                     case 1:
+
                         position += dieRoll;
+
+                        Console.WriteLine("Player moves ahead by : " + position);
                         if (position > winningPosition)
                         {
-                            Console.WriteLine("Try Again_Die value exceeds win!!");
+                            position -= dieRoll;
+
                         }
-                        else
+                        else if (position == winningPosition)
                         {
-                            Console.WriteLine("Player moves ahead by : " + position);
+                            Console.WriteLine("User Has Won " + position);
+                            break;
+
                         }
                         break;
 
@@ -59,9 +64,9 @@ namespace SnakeAndLadder
                         }
                         break;
 
-
-
                 }
+
+
 
                 Console.ReadLine();
 
